@@ -48,15 +48,31 @@ var pack = (function () {
 }());
 var PackHelper = (function () {
     function PackHelper() {
+        this._deck = new Array();
     }
     PackHelper.prototype.GetCards = function (nos) {
+        if (nos === void 0) { nos = 1; }
         for (var i = 1; i <= nos; i++) {
             var _pack = new pack();
             var cards = _pack.Cards();
-            for (var card_1 in cards) {
-                this._deck.push(card_1);
+            for (var i_1 = 0; i_1 < cards.length; i_1++) {
+                this._deck.push(cards[i_1]);
             }
         }
+        return this._deck;
+    };
+    PackHelper.prototype.Shuffle = function () {
+        if (this._deck.length == 0)
+            this._deck = this.GetCards();
+        var len = this._deck.length;
+        var i, t;
+        while (len) {
+            i = Math.floor(Math.random() * len--);
+            t = this._deck[len];
+            this._deck[len] = this._deck[i];
+            this._deck[i] = t;
+        }
+        return this._deck;
     };
     return PackHelper;
 }());

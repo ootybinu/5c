@@ -7,11 +7,12 @@
 </head>
 <body>
 <script type="text/javascript">
-	var p = new pack();
-var cards = p.Cards();
-for(let c in cards)
+	var p = new PackHelper();
+var cards = p.GetCards(1);
+var cards = p.Shuffle();
+for(let i = 0;i< cards.length;i++)
 {
-	console.log(c);
+	console.log(cards[i]);
 }
 </script>
 </body>
