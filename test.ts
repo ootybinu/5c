@@ -100,3 +100,28 @@ enum color {
 	Black,
 	Red
 }
+
+class Player {
+	Name:string;
+	Id:string;
+	DisplayName:string;
+	constructor(argument) {
+		// code...
+	}
+
+}
+
+class Table {
+	Players:Player[];
+	CurrentPlayer:Player;
+
+}
+class Admin 
+{
+	private _players:Player[];
+	
+	Start(){
+
+		this._players.push(this._players.shift());
+	}
+}
